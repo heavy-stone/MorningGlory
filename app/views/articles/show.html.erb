@@ -20,7 +20,7 @@
   </tr>
   <tr>
     <th>掲載終了日時</th>
-    <td><%= @article.expired_at.strftime("%Y/%m/%D %H:%M") %></td>
+    <td><%= @article.expired_at ? @article.expired_at.strftime("%Y/%m/%D %H:%M") : "掲載終了日時を設定しない" %></td>
   </tr>
   <tr>
     <th>会員限定</th>
