@@ -4,7 +4,6 @@ class ArticlesController < ApplicationController
   # 記事一覧
   def index
     @articles = Article.order(released_at: :desc)
-
     @articles = @articles.open_to_the_public unless current_member
   end
 
@@ -14,7 +13,7 @@ class ArticlesController < ApplicationController
     # 例外ActiveRecord::RecordNotFoundが発生するようにする
     articles = Article.all
 
-    articles = @articles.open_to_the_public unless current_member
+    articles = articles.open_to_the_public unless current_member
 
     unless current_member&.administrator?
       articles = articles.visible
