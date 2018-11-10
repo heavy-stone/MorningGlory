@@ -50,5 +50,5 @@ class EntriesController < ApplicationController
     @entry.destroy
     redirect_to :entries, notice: "#{@entry.title}を削除しました"
   end
-
+  # branch test
 end
