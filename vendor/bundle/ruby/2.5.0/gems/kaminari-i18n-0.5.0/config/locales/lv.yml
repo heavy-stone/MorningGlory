@@ -1,0 +1,12 @@
+lv:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: Rāda %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> no <b>%{total}</b>
+  views:
+    pagination:
+      first: "&laquo; Pirmā"
+      last: Pēdējā &raquo;
+      next: Nākošais &rsaquo;
+      previous: "&lsaquo; Iepriekšējais"
+      truncate: "&hellip;"
