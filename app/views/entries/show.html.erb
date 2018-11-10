@@ -1,2 +1,8 @@
-<h1>Eintries#show</h1>
-<p>Find me in app/views/eintries/show.html.erb</p>
+<% @page_title = @entry.title + " - " + @entry.author.name + "さんのブログ" %>
+
+<h1><%= @entry.author.name %>さんのブログ</h1>
+<h2><%= @entry.title %></h2>
+
+<%= simple_format(@entry.body) %>
+
+<%= render "footer", entry: @entry %>
