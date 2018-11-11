@@ -34,5 +34,9 @@ module Asagao
     config.i18n.default_locale = :ja  # 標準ロケールを日本語に
 
     config.action_controller.permit_all_parameters = false
+
+    config.exceptions_app = -> (env) do
+      ErrorsController.action(:show).call(env)
+    end
   end
 end
