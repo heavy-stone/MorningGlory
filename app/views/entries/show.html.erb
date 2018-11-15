@@ -1,8 +1,8 @@
 <% @page_title = @entry.title + " - " + @entry.author.name + "さんのブログ" %>
-
 <h1><%= @entry.author.name %>さんのブログ</h1>
 <h2><%= @entry.title %></h2>
 
+<%= the_first_image(@entry) %>
 <%= simple_format(@entry.body) %>
-
+<%= other_images(@entry) %>
 <%= render "footer", entry: @entry %>

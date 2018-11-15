@@ -55,7 +55,9 @@ class MembersController < ApplicationController
     render "index"
   end
 
-  private def member_params
+  private
+
+  def member_params
     attrs = [
       :new_profile_picture,
       :remove_profile_picture,
