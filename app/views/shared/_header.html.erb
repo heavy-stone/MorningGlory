@@ -2,9 +2,21 @@
 
 <%if current_member %>
   <ul class="account-menu">
-    <%= menu_link_to current_member.name + "さん", :account %>
-    <%= menu_link_to "ログアウト", :session,
-      method: :delete, data: { confirm: "ログアウトしますか？" } %>
+    <table>
+    <tr>
+    <td>
+    <% if current_member.profile_picture.attached? %>
+      <%= image_tag current_member.profile_picture.variant(resize: "35x35") %>
+    <% end %>
+    </td>
+    <td>
+      <%= menu_link_to current_member.name + "さん", :account %>
+    </td>
+    <td>
+      <%= menu_link_to "ログアウト", :session, method: :delete, data: { confirm: "ログアウトしますか？" } %>
+    </td>
+    </tr>
+    </table>
   </ul>
 <% end %>
 
