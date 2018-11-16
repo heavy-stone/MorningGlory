@@ -61,4 +61,9 @@ class EntriesController < ApplicationController
     )
   end
 
+  def like
+    @entry = Entry.published.find(params[:id])
+    current_member.voted_entries << @entry
+    redirect_to @entry, notice: "投票しました"
+  end
 end
