@@ -51,7 +51,10 @@ class MembersController < ApplicationController
   end
 
   def search
-    @members = Member.search(params[:q]).page(params[:page]).per(15)
+    if params[:q].present? # 空白検索時のエラー回避用
+      @members = Member.search(params[:q]).page(params[:page]).per(15)
+    end
+    @members
     render "index"
   end
 
