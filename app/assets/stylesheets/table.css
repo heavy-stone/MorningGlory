@@ -16,7 +16,7 @@ table.attr td, table.attr th {
 }
 
 table.list th {
-  text-align: right;
+  text-align: left;
 }
 
 table.attr th {

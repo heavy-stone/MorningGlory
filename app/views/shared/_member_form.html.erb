@@ -51,7 +51,7 @@
     </tr>
   <% end %>
   <%# AccountsControllerでは管理者フラグチェックボックスは使えないようにする %>
-  <% if controller.kind_of?(MembersController) %>
+  <% if controller.kind_of?(Admin::MembersController) %>
     <tr>
       <th><%= Member.human_attribute_name(:administrator) %></th>
       <td>
