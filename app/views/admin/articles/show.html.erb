@@ -1,0 +1,27 @@
+<% @page_title = @article.title %>
+<h1><%= @page_title %></h1>
+
+<div class="toolbar"><%= link_to "一覧", :admin_articles %> | <%= link_to "編集", [:edit, :admin, @article] %></div>
+
+<table class="attr">
+  <tr>
+    <th width="100">タイトル</th>
+    <td><%= @article.title %></td>
+  </tr>
+  <tr>
+    <th>本文</th>
+    <td><%= simple_format(@article.body) %></td>
+  </tr>
+  <tr>
+    <th>掲載開始日時</th>
+    <td><%= @article.released_at.strftime("%Y/%m/%D %H:%M") %></td>
+  </tr>
+  <tr>
+    <th>掲載終了日時</th>
+    <td><%= @article.expired_at ? @article.expired_at.strftime("%Y/%m/%D %H:%M") : "掲載終了日時を設定しない" %></td>
+  </tr>
+  <tr>
+    <th>会員限定</th>
+    <td><%= @article.member_only? ? "◯" : "-" %></td>
+  </tr>
+</table>

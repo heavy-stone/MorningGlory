@@ -1,9 +1,0 @@
-<% @page_title = "ニュース記事の編集" %>
-<h1><%= @page_title %></h1>
-
-<div class="toolbar"><%= link_to "一覧", :articles %> | <%= link_to "記事詳細", @article %></div>
-
-<%= form_for @article do |form| %>
-  <%= render "form", form: form %>
-  <div><%= form.submit %></div>
-<% end %>
