@@ -2,9 +2,10 @@
 <h1><%= @page_title %></h1>
 <h2><%= @entry.title %></h2>
 
+<div class="toolbar"><%= link_to "ブログ記事の画像に戻る", [@entry, :images] %></div>
+
 <% url = entry_images_path(@entry, @image) %>
 <%= form_for @image, as: "image", url: url do |form| %>
   <%= render "form", form: form %>
   <div><%= form.submit %></div>
 <% end %>
-
