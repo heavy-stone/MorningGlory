@@ -17,14 +17,16 @@ class Member < ApplicationRecord
     },
     uniqueness: true
   validates :name, presence: true,
-    format: { with: /\A[A-Za-z][A-Za-z0-9]*\z/, allow_blank: true, message: :invalid_member_name },
-    length: { minimum: 2, maximum: 20, allow_blank: true },
+    format: { with: /\A[A-Za-z0-9_-]*\z/, allow_blank: true, message: :invalid_member_name },
+    length: { minimum: 4, maximum: 20, allow_blank: true },
     uniqueness: { case_sensitive: false } # 大文字小文字を区別しない
   validates :full_name, presence: true, length: { maximum: 20 }
   validates :email, email: { allow_blank: true } # メールアドレスは空でもよい
 
   attr_accessor :current_password
-  validates :password, presence: { if: :current_password }
+  validates :password, presence: { if: :current_password },
+    format: { with: /\A[A-Za-z0-9#?!@$%^&*_-]*\z/, allow_blank: true, message: :invalid_password },
+    length: { minimum: 8, maximum: 12, allow_blank: true }
 
   validate if: :new_profile_picture do
     if new_profile_picture.respond_to?(:content_type)
