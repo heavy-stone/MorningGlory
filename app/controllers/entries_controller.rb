@@ -64,7 +64,12 @@ class EntriesController < ApplicationController
   def like
     @entry = Entry.published.find(params[:id])
     current_member.voted_entries << @entry
-    redirect_to @entry, notice: "投票しました"
+    if params[:show]
+      redirect_to @entry, notice: "投票しました"
+    else
+      redirect_back(fallback_location: :entries)
+      flash[:notice] = "投票しました"
+    end
   end
 
   def unlike
@@ -75,6 +80,4 @@ class EntriesController < ApplicationController
   def voted
     @entries = current_member.voted_entries.published.order("votes.created_at DESC").page(params[:page]).per(15)
   end
-
-
 end

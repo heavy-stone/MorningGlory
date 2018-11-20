@@ -4,7 +4,7 @@
   <% end %>
 
   <% if current_member && current_member.votable_for?(@entry) %>
-    <%= link_to "★いいね！", [:like, @entry],
+    <%= link_to "★いいね！", like_entry_path(@entry, params: { show: 1 }),
       method: :patch, class: "button" %>
   <% end %>
 </div>
