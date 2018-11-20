@@ -10,7 +10,7 @@
 
 <% if @entries.present? %>
   <% @entries.each do |entry| %>
-    <h2><%= entry.title %></h2>
+    <h2><%= link_to entry.title, entry %></h2>
     <p><%= truncate(entry.body, length: 80) %>
       <%= link_to "もっと読む", entry %></p>
       <%= render "footer", entry: entry %>

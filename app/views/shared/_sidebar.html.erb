@@ -6,18 +6,26 @@
   articles = articles.open_to_the_public unless current_member
 %>
 <ul>
-  <% articles.each do |article| %>
-    <li><%= link_to article.title, article %></li>
+  <% if articles.present? %>
+    <% articles.each do |article| %>
+      <li><%= link_to article.title, article %></li>
+    <% end %>
+  <% else %>
+    <li>現在、最新ニュースはありません</li>
   <% end %>
 </ul>
 
 <h2>会員のブログ</h2>
 <% entries = Entry.readable_for(current_member).order(posted_at: :desc).limit(5) %>
 <ul>
-  <% entries.each do |entry| %>
-    <li>
-      <%= link_to entry.title, entry %>
-      by <%= link_to entry.author.name, [entry.author, :entries] %>
-    </li>
+  <% if entries.present? %>
+    <% entries.each do |entry| %>
+      <li>
+        <%= link_to entry.title, entry %>
+        by <%= link_to entry.author.name, [entry.author, :entries] %>
+      </li>
+    <% end %>
+  <% else %>
+    <li>現在、新しい記事はありません</li>
   <% end %>
 </ul>

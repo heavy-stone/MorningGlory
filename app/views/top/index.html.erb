@@ -1,8 +1,11 @@
-<% @articles.each do |article| %>
-  <h2><%= link_to article.title, article %></h2>
-  <p>
-  <%= truncate article.body, length: 80 %>
-  <%= link_to "もっと読む", article %>
-  </p>
+<% if @articles.present? %>
+  <% @articles.each do |article| %>
+    <h2><%= link_to article.title, article %></h2>
+    <p>
+    <%= truncate article.body, length: 80 %>
+    <%= link_to "もっと読む", article %>
+    </p>
+  <% end %>
+<% else %>
+  <p>ニュースがありません。</p>
 <% end %>
-<%= paginate @articles %>
