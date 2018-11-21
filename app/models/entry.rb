@@ -9,6 +9,13 @@ class Entry < ApplicationRecord
   validates :title, presence: true, length: { maximum: 200 }
   validates :body, :posted_at, presence: true
   validates :status, inclusion: { in: STATUS_VALUES }
+  validate :posted_at_check
+
+  def posted_at_check
+    if posted_at < Time.zone.local(2000, 1, 1, 0, 0, 0) || Time.zone.now.next_year < posted_at
+      errors.add(:posted_at, :invalid_posted_at)
+    end
+  end
 
   scope :common, -> { where(status: "public") }
   # 公開と会員限定記事
@@ -27,6 +34,5 @@ class Entry < ApplicationRecord
     def status_options
       STATUS_VALUES.map { |status| [status_text(status), status] }
     end
-
   end
 end
