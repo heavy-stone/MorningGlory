@@ -36,6 +36,10 @@ class Member < ApplicationRecord
     else
       errors.add(:new_profile_picture, :invalid)
     end
+
+    if new_profile_picture.size > 10.megabytes
+      errors.add(:new_profile_picture, :invalid_image_size)
+    end
   end
 
   before_save do

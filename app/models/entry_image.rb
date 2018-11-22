@@ -15,6 +15,10 @@ class EntryImage < ApplicationRecord
     else
       errors.add(:new_data, :invalid)
     end
+
+    if new_data.size > 10.megabytes
+      errors.add(:new_data, :invalid_image_size)
+    end
   end
 
   before_save do
