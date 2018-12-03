@@ -1,4 +1,4 @@
-names = %w(Taro Jiro Hana John Mike Sophy Bill-j Alex Mary Tom_)
+names = %w(Taro Jiro Hana John Mike Sophy Bill-j Alex Mary Tom_-Tom)
 fnames = ["佐藤", "鈴木", "高橋", "田中"]
 gnames = ["太郎", "次郎", "花子"]
 0.upto(9) do |idx|
@@ -10,8 +10,8 @@ gnames = ["太郎", "次郎", "花子"]
     birthday: "1981-12-01",
     sex: [1, 1, 2][idx % 3],
     administrator: (idx == 0),
-    password: "#?!@$%^&*_-",
-    password_confirmation: "#?!@$%^&*_-"
+    password: "asagao01",
+    password_confirmation: "asagao01"
   )
 end
 
@@ -24,8 +24,8 @@ end
     birthday: "1981-12-01",
     sex: 1,
     administrator: false,
-    password: "john",
-    password_confirmation: "john"
+    password: "#?!@$%^&*_-",
+    password_confirmation: "#?!@$%^&*_-"
   )
 end
 

@@ -47,7 +47,9 @@ class EntryImagesController < ApplicationController
     redirect_to [@entry, :images], notice: "画像を削除しました"
   end
 
-  private def image_params
+  private
+
+  def image_params
     params.require(:image).permit(
       :new_data,
       :alt_text
