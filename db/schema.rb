@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2018_11_15_075343) do
 
-  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_075343) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "active_storage_blobs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_075343) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
     t.datetime "released_at", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_075343) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "member_id", null: false
     t.string "title", null: false
     t.text "body", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_075343) do
     t.index ["member_id"], name: "index_entries_on_member_id"
   end
 
-  create_table "entry_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "entry_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "entry_id"
     t.string "alt_text", default: "", null: false
     t.integer "position"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_075343) do
     t.index ["entry_id"], name: "index_entry_images_on_entry_id"
   end
 
-  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "members", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "number", null: false
     t.string "name", null: false
     t.string "full_name"
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_075343) do
     t.string "password_digest"
   end
 
-  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "votes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "entry_id", null: false
     t.bigint "member_id", null: false
     t.datetime "created_at", null: false
