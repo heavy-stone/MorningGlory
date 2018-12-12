@@ -61,6 +61,7 @@ class Member < ApplicationRecord
     def search(query)
       rel = order("number")
       if query.present?
+        query.strip_all_space!
         rel = rel.where("name LIKE ? OR full_name LIKE ?",
           "%#{query}%", "%#{query}%")
       end
